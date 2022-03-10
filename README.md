@@ -32,9 +32,10 @@ Select crRNAs given an intended use, e.g. N or C-terminus tagging, get correspon
 
 ### Synthesis order
 1. The first iteration did not filled 4*384 plates, so we arranged the last plate in other ways to complete the order:
-    -Last well of each plate (384) contains sequences used as co-CRISPR for which I don't have full information
     
-    -On plate for, well 379 to 382 contains a set of selected crRNAs on genes that MDJ and CFJ decided. THese wells were repeated to fill up the wells
+    -Last well of each plate (384) contains sequences used as co-CRISPR
+    
+    -On plate 4, well 379 to 382 contains a set of selected crRNAs on genes that are used as controls.
     
     -Well 383 is a duplication of co-CRIPSR oligos, and so well 383 and 384 are the same for plate 4.
 
