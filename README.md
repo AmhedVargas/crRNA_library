@@ -44,6 +44,29 @@ The crRNA library was designed to be compused of **four** 384 plates each of the
 * Well 383 is a duplication of co-CRIPSR oligos, and so well 383 and 384 are the same for plate 4.
 
 ## Library generation
+To ease and automate the crRNA selection process, we figured out that a good strategy is to produce genomic tracks from where we could select crRNAs and optimize further our selections. Therefore we focused in the creation of:
+
+**1. Genebodies and CDS tracks:**
+
+**2. An Alphafold confidence track:**
+
+**3. crRNAs tracks:**
+
+**Scripts to produce each track can be found in the `tracks` folder of this repository.**
+
+Once we had our genomic tracks, we proceed to do intersections and treat
+
+
+
+**The above steps were performed using the code located in the `processing` folder of this repository.**
+
+## Troubleshoot
+
+Please feel free to [e-mail me](mailto:amhed.velazquez@kaust.edu.sa) for any question, doubt or error in the app.
+
+## Citation
+For now there is no available publication
+
 
 
 
