@@ -18,7 +18,7 @@ All possible *C. elegans* crRNA target sequences were scrutinized, filtered, and
     
 **3. ATG:** crRNAs targeting the ATG of each isoform in around a 10bp window with homology arms starting after the start codon (in frame).
 
-**4. CDS:** crRNAs targeting each possible CDS of a given gene. For CDS predicted to encode for a stable protein domain with high confidence, i.e. Alphafold's pLDTT median score above 90, we prioritize the selection of crRNA with the lowest pLDTT score in its cutting site. With this criteria we hoped to avoid disruption of sensitive regions for protein activity, however, note that studies in *drosophila* have revealed that efficient internal protein fluorescent tagging can occur irrespective of the insertion site (*e.g.* [Nagarkar-Jaiswal *et. al.* 2015](https://elifesciences.org/articles/5338)).
+**4. CDS:** crRNAs targeting each possible CDS of a given gene. For CDS predicted to encode for a stable protein domain with high confidence, i.e. Alphafold's pLDTT median score above 90, we prioritize the selection of crRNA with the lowest pLDTT score in its cutting site. With this criteria we hoped to avoid disruption of sensitive regions for protein activity, however, note that studies in *drosophila* have revealed that efficient internal protein fluorescent tagging can occur irrespective of the insertion site (*e.g.* [Nagarkar-Jaiswal *et al.* 2015](https://elifesciences.org/articles/5338)).
 
 **4a. CDS guidescan:** crRNAs obtained from the program guidescan. We prioritized these ones as scores for cutting efficiency and on-site activity were available. Note that we obtained these scores by running a [docker container](https://hub.docker.com/layers/xerez/guidescan/latest/images/sha256-ea5c5ed0b873205243babb26a49f85f14f2c05fd992e66f6ff13722842df9ef7) with its software pre-installed and querying all possible sites across the *C. elegans* genome.
     
@@ -35,13 +35,13 @@ Please note that for genes with multiple start or stop sites, we also tried to s
 Then for each crRNA in the selection, adjacent sequences were added and treated as homology arms for CRISPR experiments. In these arms, restriction sites as re-appearing crRNA sites were removed by altering their sequences (with synonym mutations if located in coding regions).
 
 ### Ordering schema within plates
-The crRNA library was designed to be compused of **four** 384 plates each of them with 120 oligos. Read Al-johadni et al. for further information. The final arrangement of our plates had the following considerations:
+The crRNA library was designed to be compused of **four** 384 plates each of them with 120 oligos. Read Al-johani *et al.* for further information. The final arrangement of our plates had the following considerations:
     
-    * Last well of each plate (384) contains sequences used as co-CRISPR.
+* Last well of each plate (384) contains sequences used as co-CRISPR.
     
-    * On plate 4, well 379 to 382 contains a set of selected crRNAs on genes that are used as controls.
+* On plate 4, well 379 to 382 contains a set of selected crRNAs on genes that are used as controls.
     
-    * Well 383 is a duplication of co-CRIPSR oligos, and so well 383 and 384 are the same for plate 4.
+* Well 383 is a duplication of co-CRIPSR oligos, and so well 383 and 384 are the same for plate 4.
 
 ## Library generation
 
