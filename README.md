@@ -12,9 +12,9 @@ This repository contains only the scripts for the selection while its usage is d
 ### crRNA selection
 All possible *C. elegans* crRNA target sequences were scrutinized, filtered, and assigned to at least one of the following categories:
 
-**1. ATG_500:** crRNAs targeting the 500bp upstream region of a genebody with homology arms next to the expected cut site.
+**1. ATG_500:** crRNAs targeting the 500 bp upstream region of a genebody with homology arms next to the expected cut site.
     
-**2. ATG_250:** crRNAs targeting the 250bp upstream region of a genebody with homology arms around the expected cut site.
+**2. ATG_250:** crRNAs targeting the 250 bp upstream region of a genebody with homology arms around the expected cut site.
     
 **3. ATG:** crRNAs targeting the ATG of each isoform in around a 10bp window with homology arms starting after the start codon (in frame).
 
@@ -24,7 +24,7 @@ All possible *C. elegans* crRNA target sequences were scrutinized, filtered, and
     
 **4b. CDS hamming:** For genes with no unique crRNA site (*i.e.* 0 off-targets) such as recent gene duplications, we selected crRNAs with low off-targets as calculated by the hamming distance (*i.e.* a metric that calculate similarity of sequences by determining how many base substitutions are required to go from one to the another) to other sites to the genome. 
     
-**5. Stop:** crRNAs targeting the end of a genebody with homology arms adjacent to the beginning of the stop codo.n
+**5. Stop:** crRNAs targeting the end of a genebody with homology arms adjacent to the beginning of the stop codon.
     
 **6. lincRNA:** crRNAs targeting long no coding RNAs.
     
@@ -35,7 +35,7 @@ Please note that for genes with multiple start or stop sites, we also tried to s
 Then for each crRNA in the selection, adjacent sequences were added and treated as homology arms for CRISPR experiments. In these arms, restriction sites as re-appearing crRNA sites were removed by altering their sequences (with synonym mutations if located in coding regions).
 
 ### Ordering schema within plates
-The crRNA library was designed to be compused of **four** 384 plates each of them with 120 oligos. Read Al-johani *et al.* for further information. The final arrangement of our plates had the following considerations:
+The crRNA library was designed to be composed of **four** 384 plates each of them with 120 oligos. Read Al-johani *et al.* for further information. The final arrangement of our plates had the following considerations:
     
 * Last well of each plate (384) contains sequences used as co-CRISPR.
     
@@ -44,21 +44,23 @@ The crRNA library was designed to be compused of **four** 384 plates each of the
 * Well 383 is a duplication of co-CRIPSR oligos, and so well 383 and 384 are the same for plate 4.
 
 ## Library generation
-To ease and automate the crRNA selection process, we figured out that a good strategy is to produce genomic tracks from where we could select crRNAs and optimize further our selections. Therefore we focused in the creation of:
+To ease and automate the crRNA selection process, we figured out that a good strategy was to produce genomic tracks from where we could select crRNAs and optimize further our selections. Therefore we focused in the creation of:
 
-**1. Genebodies and CDS tracks:**
+**1. Genebodies and CDS tracks:** For each *C. elegans* protein coding gene annotated in the WS283 version of [WormBase](https://wormbase.org/) we extracted every annotated CDS, collapsed the repeated CDS, and created a genomic track with them. Similarly, we annotated the location of their ATGs and stop codons. 
 
-**2. An Alphafold confidence track:**
+**2. An Alphafold confidence track:** Predicted confidence scores were downloaded for all available *C. elegans* proteins from the [Alphafold Protein Structure Database](https://alphafold.ebi.ac.uk/). Corresponding WormBase transcripts with the same coding sequence length were matched and location extracted from WormBase annotations. For each codon a corresponding confidence score and genomic location was assigned and written into a single bedgraph per transcript. A final bedgraph with all *C. elegans* annotated transcripts was produced and used for further analysis such as, defining if CDS was "structured" (confidence score above 90) and what score had the cutting site of crRNAs.
 
-**3. crRNAs tracks:**
+**3. crRNAs tracks:** crRNA genomic tracks were obtained from two different sources. The first set comes directly from [guidescan](https://guidescan.com/) calculations for ce11 and obtained trhough running a batch query within its [docker distribution] (https://hub.docker.com/layers/xerez/guidescan/latest/images/sha256-ea5c5ed0b873205243babb26a49f85f14f2c05fd992e66f6ff13722842df9ef7). The second set was consisted of every possible crRNA with NGG pam site within *C. elegans* ce11/WS235 genome with additional info of their uniqueness within the genome (calculated by a [hamming distance](https://github.com/AmhedVargas/CelegansHammingAlignments)).
 
 **Scripts to produce each track can be found in the `tracks` folder of this repository.**
 
 Once we had our genomic tracks, we proceed to do intersections and treat
 
-
+Additionally, we created selected crRNAs that targeted the genomic locations of long non-coding RNAs and microRNAs.
 
 **The above steps were performed using the code located in the `processing` folder of this repository.**
+
+Finally, we proceeded to assembly the crRNA selection with their homology arms using their target genomic location to order them within the 384 plates. **The code for the library assembly can be found at the `assembly` folder of this repository.**
 
 ## Troubleshoot
 
