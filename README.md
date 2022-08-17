@@ -4,6 +4,7 @@ Repository containing modifiable scripts and pipeline for the contruction of a c
 ## Basic gist
 Select crRNAs given an intended use, e.g. N or C-terminus tagging, get corresponding homology arms, add base substittutions (if needed) to avoid re-crRNA targetting, restriction sites, or primer binding, place those sequences into a given scaffold, and then iterare over a library structure.
 
+![Screenshot](img/crRNA_library-Main_gist.png)
 ## Considerations
 ### crRNA selection
 1. We got different categories for the selection, the main being:
