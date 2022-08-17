@@ -1,10 +1,13 @@
 # crRNA library (2021)
-Repository containing modifiable scripts and pipeline for the contruction of a collection of *C. elegans* crRNAs with corresponding homology arms that can be used for multiple purpouses.
+Repository containing scripts and the pipeline followed to select a collection of *C. elegans* CRISPR RNAs (crRNAs) targets with multiple purposes.
 
 ## Basic gist
-Select crRNAs given an intended use, e.g. N or C-terminus tagging, get corresponding homology arms, add base substittutions (if needed) to avoid re-crRNA targetting, restriction sites, or primer binding, place those sequences into a given scaffold, and then iterare over a library structure.
+The main use of this repository is to produce collections of *C. elegans* crRNAs for a given use, *e.g.* N or C-terminus tagging, considering their possible off-target sequences, cutting efficiency, location within a gene, and possible cut between protein domains (as predicted by [Alphafold Protein Structure Database](https://alphafold.ebi.ac.uk/)) as ilustraded in the following diagram.
 
 ![Screenshot](img/crRNA_library-Main_gist.png)
+
+This repository contains only the scripts for the selection while its usage is described elsewhere, for example, in the [crRNA library track selection app](https://github.com/AmhedVargas/CRISPR_library_track).
+
 ## Considerations
 ### crRNA selection
 1. We got different categories for the selection, the main being:
